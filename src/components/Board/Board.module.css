@@ -1,0 +1,12 @@
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 195px;
+  height: 195px;
+  outline: 1px solid red;
+  padding: 0;
+}
+.boardItem {
+  flex-basis: 65px;
+  aspect-ratio: 1/1;
+}

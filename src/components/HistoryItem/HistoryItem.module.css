@@ -1,0 +1,23 @@
+.historyItem {
+  list-style: decimal;
+  margin-left: 3rem;
+
+  width: 90px;
+  height: fit-content;
+}
+
+.historyItem:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  border: 1px solid black;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  width: calc(100% / 3);
+}
