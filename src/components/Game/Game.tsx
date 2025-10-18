@@ -6,25 +6,24 @@ import ResetBtn from '@/ResetBtn/ResetBtn';
 
 const Game = () => {
   const [gameHistory, setGameHistory] = useState([Array(9).fill(null)]);
-  const [xIsNext, setXIsNext] = useState(false);
   const [currentMove, setCurrentMove] = useState(1);
 
   let currentSquares = gameHistory[currentMove - 1];
+  let xIsNext = currentMove % 2 === 0;
   let nextValue = xIsNext ? 'x' : 'o';
 
   function handleClick(i: number) {
     if (currentSquares[i] || isWinned()) return;
     const newSquares = currentSquares.slice();
     newSquares[i] = nextValue;
+    xIsNext = !xIsNext;
 
     setCurrentMove(s => s + 1);
-    setXIsNext(s => !s);
     setGameHistory(state => [...state.slice(0, currentMove), newSquares]);
   }
 
   function handleReturn(move: number) {
     setCurrentMove(move);
-    setXIsNext(move % 2 === 0);
   }
 
   function handleReset() {
