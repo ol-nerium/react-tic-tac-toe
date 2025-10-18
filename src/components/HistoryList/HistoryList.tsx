@@ -11,6 +11,7 @@ const HistoryList = ({
   return (
     <ol className={css.historyList}>
       {history.map((item: string[], index: number) => {
+        if (index === 0) return null;
         return (
           <HistoryItem
             item={item}
