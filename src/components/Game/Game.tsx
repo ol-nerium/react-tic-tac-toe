@@ -24,7 +24,7 @@ const Game = () => {
 
   function handleReturn(move: number) {
     setCurrentMove(move);
-    setXIsNext(move % 2 === 0 ? true : false);
+    setXIsNext(move % 2 === 0);
   }
 
   function handleReset() {
@@ -48,15 +48,24 @@ const Game = () => {
         currentSquares[a] &&
         currentSquares[a] === currentSquares[b] &&
         currentSquares[a] === currentSquares[c]
-      )
-        return `Game Over! ${!xIsNext ? 'X' : 'O'} winned!`;
+      ) {
+        const winnerInfo = {
+          message: `Game Over! ${!xIsNext ? 'X' : 'O'} won!`,
+          winnerLine: winArr[i],
+        };
+        return winnerInfo;
+      }
     }
   }
 
   return (
     <>
-      <Title text={isWinned() || `${nextValue} turn`} />
-      <Board squares={currentSquares} onClick={handleClick} />
+      <Title text={isWinned()?.message || `${nextValue} turn`} />
+      <Board
+        squares={currentSquares}
+        onClick={handleClick}
+        winnerInfo={isWinned()}
+      />
       <ResetBtn handleReset={handleReset} />
       <HistoryList history={gameHistory} handleReturn={handleReturn} />
     </>
