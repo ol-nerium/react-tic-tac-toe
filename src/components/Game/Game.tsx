@@ -32,9 +32,6 @@ const Game = () => {
 
     for (let i = 0; i < winArr.length; i += 1) {
       const [a, b, c] = winArr[i];
-      // console.log(currentSquares[a]);
-      // console.log(currentSquares[b]);
-      // console.log(currentSquares[c]);
       if (
         currentSquares[a] &&
         currentSquares[a] === currentSquares[b] &&
@@ -46,7 +43,6 @@ const Game = () => {
   return (
     <>
       <Title text={isWinned() || `${xIsNext ? 'x' : 'o'} turn`} />
-
       <Board history={gameHistory} onClick={handleClick} />
       <HistoryList history={gameHistory} handleReturn={handleReturn} />
     </>

@@ -1,7 +1,13 @@
 import HistoryItem from '../HistoryItem/HistoryItem';
 import css from './HistoryList.module.css';
 
-const HistoryList = ({ history, handleReturn }) => {
+const HistoryList = ({
+  history,
+  handleReturn,
+}: {
+  history: string[][];
+  handleReturn: (move: number) => void;
+}) => {
   return (
     <ol className={css.historyList}>
       {history.map((item: string[], index: number) => {
