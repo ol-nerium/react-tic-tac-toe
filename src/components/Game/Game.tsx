@@ -42,7 +42,6 @@ const Game = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    console.log(currentSquares);
     for (let i = 0; i < winArr.length; i += 1) {
       const [a, b, c] = winArr[i];
       if (
