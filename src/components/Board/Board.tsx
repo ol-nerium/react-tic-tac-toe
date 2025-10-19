@@ -8,24 +8,22 @@ const Board = ({
 }: {
   squares: string[];
   onClick: (i: number) => void;
-  winnerInfo:
-    | {
-        message: string;
-        winnerLine: number[];
-      }
-    | undefined;
+  winnerInfo: {
+    message: string;
+    winnerLine: number[];
+  } | null;
 }) => {
-  const highlighted = winnerInfo ? winnerInfo.winnerLine : null;
   return (
     <ul className={css.board}>
       {squares.map((value, index) => {
+        const handleClick = () => onClick(index);
+        const isHighLighted = winnerInfo?.winnerLine.includes(index);
         return (
           <li className={css.boardItem} key={index}>
             <Square
-              onClick={onClick}
-              index={index}
+              handleClick={handleClick}
               value={value}
-              highlighted={highlighted}
+              isHighLighted={isHighLighted}
             />
           </li>
         );

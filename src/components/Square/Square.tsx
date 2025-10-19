@@ -1,23 +1,17 @@
 import css from './Square.module.css';
 
 const Square = ({
-  onClick,
-  index,
+  handleClick,
   value,
-  highlighted,
+  isHighLighted,
 }: {
-  onClick: (index: number) => void;
-  index: number;
+  handleClick: () => void;
   value: string;
-  highlighted: number[] | null;
+  isHighLighted: boolean | undefined;
 }) => {
-  let clasArr: string = css.squareBtn;
-  if (highlighted)
-    clasArr = highlighted.includes(index)
-      ? `${css.squareBtn} ${css.highlighted}`
-      : `${css.squareBtn}`;
-  const handleClick = () => onClick(index);
-
+  let clasArr = isHighLighted
+    ? `${css.squareBtn} ${css.highlighted}`
+    : css.squareBtn;
   return (
     <button onClick={handleClick} className={clasArr}>
       {value}

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Board from '../Board/Board';
-import Title from '../Title/Title';
-import HistoryList from '../HistoryList/HistoryList';
-import ResetBtn from '@/ResetBtn/ResetBtn';
+import Board from '@/components/Board/Board';
+import Title from '@/components/Title/Title';
+import HistoryList from '@/components/HistoryList/HistoryList';
+import ResetBtn from '@/components/ResetBtn/ResetBtn';
 
 const Game = () => {
   const [gameHistory, setGameHistory] = useState([Array(9).fill(null)]);
@@ -55,6 +55,7 @@ const Game = () => {
         return winnerInfo;
       }
     }
+    return null;
   }
 
   return (
